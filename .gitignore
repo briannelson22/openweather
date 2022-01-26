@@ -1,2 +1,5 @@
 /node_modules/
 /.idea/
+/.env.local
+/log/app.log
+/log/errors.log
