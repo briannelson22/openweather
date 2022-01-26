@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const app = express();
 const port = 3000;
-const OPENWEATHER_API_KEY = '3e5cb073f1d67048c055782d57496f91';
+const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
 const OPENWEATHER_ONECALL_URI = 'https://api.openweathermap.org/data/2.5/onecall';
 
 {
