@@ -29,7 +29,12 @@ export const mapTempToDescription = (temp) => {
   return 'cold';
 };
 
-const simplifyResponse = (response) => ({
+/**
+ * Simplify an Axios response to only the parts we want to log
+ * @param response Axios response object
+ * @returns {{headers: *, data, statusText: *, status}}
+ */
+const simplifyAxiosResponse = (response) => ({
   status: response.status,
   statusText: response.statusText,
   data: response.data,
@@ -41,7 +46,7 @@ const simplifyResponse = (response) => ({
  *
  * @param lat {number} Latitude of the location to retrieve weather report for
  * @param lon {number} Longitude of the location to retrieve weather report for
- * @returns {Promise{forecast: string, temp: string, alerts: string}}
+ * @returns {Promise<{forecast: string, temp: string, alerts: Array<string>}>}
  */
 export const getWeather = async (
   lat,
@@ -74,7 +79,7 @@ export const getWeather = async (
         responseType: 'json',
       },
     );
-    logger.trace(`openWeatherResponse: ${stringify(simplifyResponse(openWeatherResponse), null, 2)}`);
+    logger.trace(`openWeatherResponse: ${stringify(simplifyAxiosResponse(openWeatherResponse), null, 2)}`);
     const { data } = openWeatherResponse;
 
     if (!data.current.weather[0]) {

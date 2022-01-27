@@ -128,19 +128,19 @@ describe('openweatherUtils', () => {
 
   describe('mapTempToDescription', () => {
     it('hot', async () => {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 100; i = i + 1) {
         const temp = chance.floating({ min: 90.0, fixed: 2 });
         expect(mapTempToDescription(temp)).to.equal('hot');
       }
     });
     it('moderate', async () => {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 100; i = i + 1) {
         const temp = chance.floating({ min: 70.0, max: 89.9, fixed: 2 });
         expect(mapTempToDescription(temp)).to.equal('moderate');
       }
     });
     it('cold', async () => {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 100; i = i + 1) {
         const temp = chance.floating({ max: 69.9, fixed: 2 });
         expect(mapTempToDescription(temp)).to.equal('cold');
       }

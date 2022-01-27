@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node src/openweatherApp.js",
     "test": "mocha",
     "test-all": "mocha test/*.mocha.js",
     "eslint-all": "eslint ./src/**/*.js"
@@ -23,7 +24,9 @@
     "express-asyncify": "^1.0.1",
     "fast-stringify": "^2.0.0",
     "is-number": "^7.0.0",
-    "log4js": "^6.4.1"
+    "log4js": "^6.4.1",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
